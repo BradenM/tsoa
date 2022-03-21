@@ -1,5 +1,5 @@
 {
-  "name": "tsoa",
+  "name": "@bradenm/tsoa",
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
   "version": "4.1.0",
   "main": "./dist/index.js",
@@ -28,8 +28,8 @@
   "author": "Luke Autry <lukeautry@gmail.com> (http://www.lukeautry.com)",
   "license": "MIT",
   "dependencies": {
-    "@tsoa/cli": "^4.1.0",
-    "@tsoa/runtime": "^4.1.0"
+    "@tsoa/cli": "npm:@bradenm/tsoa-cli",
+    "@tsoa/runtime": "npm:@bradenm/tsoa-runtime"
   },
   "devDependencies": {
     "@types/node": "^14.11.1",
