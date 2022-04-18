@@ -1,10 +1,12 @@
 {
   "name": "@bradenm/tsoa",
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
-  "version": "4.0.0-rc.1",
+  "version": "4.0.0-1.429f2d8f7e51c0044b0cb81ae6cdbde6b32d23db",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "typescript",
     "openapi",
