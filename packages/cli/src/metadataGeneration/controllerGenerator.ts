@@ -121,7 +121,11 @@ export class ControllerGenerator {
       return [];
     }
 
-    return securityDecorators.map(d => getSecurites(d, this.current.typeChecker));
+    // TODO: quick fix to force sec decos unique by name.
+    // needs to actually check value uniq.
+    const secs = securityDecorators.map(d => getSecurites(d, this.current.typeChecker));
+    const secKeys = Array.from(new Set(secs.map(s => Object.keys(s)).flat()));
+    return secKeys.map(sk => secs.find(s => sk in s));
   }
 
   private getIsHidden(): boolean {
