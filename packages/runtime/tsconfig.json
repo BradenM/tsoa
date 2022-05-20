@@ -5,7 +5,7 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
-    "types": ["node"],
+    "types": ["node", "reflect-metadata"],
     "composite": true,
     "target": "ES2019",
     "lib": ["ES2019"],

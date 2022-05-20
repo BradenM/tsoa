@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 export * from './decorators/deprecated';
 export * from './decorators/example';
 export * from './decorators/parameter';
