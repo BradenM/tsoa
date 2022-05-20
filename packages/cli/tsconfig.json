@@ -8,6 +8,7 @@
     "module": "commonjs",
     "target": "ES2019",
     "lib": ["ES2019"],
+    "types": ["node", "reflect-metadata"],
     "typeRoots": ["node_modules/@types", "./typings"],
     "downlevelIteration": true,
     "experimentalDecorators": true,
