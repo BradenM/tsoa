@@ -1,8 +1,32 @@
 import * as ts from 'typescript';
 import { getInitializerValue } from '../metadataGeneration/initializer-value';
+import { fetchSecurity } from '@tsoa/runtime';
 
 export function getDecorators(node: ts.Node, isMatching: (identifier: ts.Identifier) => boolean) {
-  const decorators = node.decorators;
+  const decorators = (node.decorators || []) as ts.Decorator[];
+
+  // TODO: take and abstract the basic idea here to apply it to other decos.
+  if (ts.isClassDeclaration(node)) {
+    // lookup up node inheritance tree prototype names.
+    let names: string[] = [node.name!.text];
+    if (node?.heritageClauses?.length) {
+      const parentNames = node.heritageClauses.map(hcl => hcl.types.map(t => t.expression?.getText())).flat();
+      names = Array.from(new Set(names.concat(parentNames)));
+    }
+    const securities = fetchSecurity();
+    const secForNode = securities.find(s => names.includes(s.target.name));
+    if (secForNode) {
+      decorators.push({
+        expression: {
+          text: 'Security',
+          parent: {
+            arguments: [ts.factory.createStringLiteral(secForNode?.security as string)],
+          } as Extract<ts.CallExpression, 'arguments'>,
+        } as Extract<Extract<ts.Identifier, 'expression'>, 'text' | 'parent'>,
+      } as Extract<ts.Decorator, 'expression'>);
+    }
+  }
+
   if (!decorators || !decorators.length) {
     return [];
   }
