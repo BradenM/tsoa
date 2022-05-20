@@ -1,7 +1,7 @@
 {
   "name": "@bradenm/tsoa-cli",
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
-  "version": "4.1.0",
+  "version": "4.0.0-1.2a4eaf7fa26756a608812b1256f21d578449d376",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "files": [
