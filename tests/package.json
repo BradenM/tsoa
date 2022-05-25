@@ -2,7 +2,7 @@
   "name": "tsoa-tests",
   "private": true,
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
-  "version": "4.0.0-1.2a4eaf7fa26756a608812b1256f21d578449d376",
+  "version": "4.0.1-1.e7a229736957d3844264f393490555b3413dcbda",
   "keywords": [
     "typescript",
     "openapi",
